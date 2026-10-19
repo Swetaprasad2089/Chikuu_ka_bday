@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Little Gallery ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #f5a1d0;
+    --text: #f3e2f1;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--text);
+    font-family: 'Cormorant Garamond', serif;
+    background:
+        radial-gradient(ellipse at 50% 35%, rgba(107,44,101,.3), transparent 65%),
+        linear-gradient(145deg, #0c0818, #1c0d2b 55%, #100819);
+    overflow-x: hidden;
+}
+
+/* TWINKLING STARS */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #ffe8fa;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ffb5e4;
+    animation: twinkle 2.5s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: .2;
+        transform: scale(.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -35px;
+    color: #f38ac9;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    animation: floatHeart 12s linear infinite;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: .6;
+    }
+    80% {
+        opacity: .5;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+/* NAVIGATION */
+
+nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 17px 12px;
+    border-bottom: 1px solid rgba(255,182,225,.15);
+}
+
+nav a {
+    text-decoration: none;
+    color: #e9cce3;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff9ed6;
+}
+
+.nav-heart {
+    color: #ff9ed6;
+    font-size: 21px;
+}
+
+/* PAGE CONTAINER */
+
+.container {
+    width: min(1200px, 94%);
+    margin: auto;
+    padding: 35px 0 55px;
+    position: relative;
+    z-index: 1;
+}
+
+/* OUR GALLERY HEADING */
+
+.gallery-heading {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(42px, 6vw, 62px);
+    font-weight: 400;
+    color: #f5a1d0;
+    margin-bottom: 30px;
+    text-shadow: 0 0 18px rgba(245,137,207,.35);
+}
+
+/* GALLERY GRID */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* PHOTO CARDS: IMAGES ONLY */
+
+.photo-card {
+    min-width: 0;
+    height: 350px;
+    padding: 9px;
+    overflow: hidden;
+    background: rgba(37,20,53,.7);
+    border: 1px solid rgba(238,155,210,.25);
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0,0,0,.25);
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+    animation: appear .7s ease both;
+}
+
+.photo-card:hover {
+    transform: translateY(-5px);
+    border-color: #f5a1d0;
+    box-shadow: 0 10px 32px rgba(225,105,190,.2);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.photo-card:nth-child(2)  { animation-delay: .04s; }
+.photo-card:nth-child(3)  { animation-delay: .08s; }
+.photo-card:nth-child(4)  { animation-delay: .12s; }
+.photo-card:nth-child(5)  { animation-delay: .16s; }
+.photo-card:nth-child(6)  { animation-delay: .20s; }
+.photo-card:nth-child(7)  { animation-delay: .24s; }
+.photo-card:nth-child(8)  { animation-delay: .28s; }
+.photo-card:nth-child(9)  { animation-delay: .32s; }
+.photo-card:nth-child(10) { animation-delay: .36s; }
+.photo-card:nth-child(11) { animation-delay: .40s; }
+.photo-card:nth-child(12) { animation-delay: .44s; }
+.photo-card:nth-child(13) { animation-delay: .48s; }
+.photo-card:nth-child(14) { animation-delay: .52s; }
+.photo-card:nth-child(15) { animation-delay: .56s; }
+.photo-card:nth-child(16) { animation-delay: .60s; }
+.photo-card:nth-child(17) { animation-delay: .64s; }
+.photo-card:nth-child(18) { animation-delay: .68s; }
+.photo-card:nth-child(19) { animation-delay: .72s; }
+.photo-card:nth-child(20) { animation-delay: .76s; }
+.photo-card:nth-child(21) { animation-delay: .80s; }
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform .5s ease;
+}
+
+.photo-card:hover img {
+    transform: scale(1.035);
+}
+
+/* FULL-SIZE PHOTO VIEWER */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: rgba(7,3,15,.95);
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    cursor: pointer;
+}
+
+.lightbox.show {
+    display: flex;
+}
+
+.lightbox img {
+    display: block;
+    max-width: 92%;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 35px rgba(245,137,207,.2);
+    cursor: default;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #ffe7f7;
+    background: transparent;
+    border: none;
+    font-size: 38px;
+    cursor: pointer;
+}
+
+/* PREVIOUS BUTTON */
+
+.bottom-buttons {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff0fa;
+    background: linear-gradient(135deg, #84418e, #c65e9e);
+    border: 1px solid #e9a0cf;
+    border-radius: 30px;
+    padding: 12px 25px;
+    margin: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(245,137,207,.35);
+}
+
+/* FOOTER */
+
+footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #dcb3d5;
+    font-family: 'Great Vibes', cursive;
+    font-size: 27px;
+    padding: 5px 20px 30px;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .photo-card {
+        height: 320px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 550px) {
+    .container {
+        width: 92%;
+        padding-top: 25px;
+    }
+
+    .gallery-heading {
+        margin-bottom: 22px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .photo-card {
+        height: 230px;
+        padding: 6px;
+        border-radius: 12px;
+    }
+
+    .photo-card img {
+        border-radius: 8px;
+    }
+
+    .lightbox img {
+        max-width: 96%;
+        max-height: 82vh;
+    }
+}
+
+/* REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<main class="container">
+
+    <!-- OUR GALLERY HEADING -->
+    <h1 class="gallery-heading">Our Gallery ♡</h1>
+
+    <!-- 21 PHOTO CARDS -->
+
+    <section class="gallery">
+
+        <div class="photo-card">
+            <img src="photo4.jpeg" alt="Memory 1" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo5.jpeg" alt="Memory 2" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo6.jpeg" alt="Memory 3" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo7.jpeg" alt="Memory 4" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo8.jpeg" alt="Memory 5" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo9.jpeg" alt="Memory 6" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo10.jpeg" alt="Memory 7" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo11.jpeg" alt="Memory 8" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo12.jpeg" alt="Memory 9" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo13.jpeg" alt="Memory 10" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo14.jpeg" alt="Memory 11" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo15.jpeg" alt="Memory 12" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo16.jpeg" alt="Memory 13" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo17.jpeg" alt="Memory 14" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo18.jpeg" alt="Memory 15" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo19.jpeg" alt="Memory 16" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo20.jpeg" alt="Memory 17" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo21.jpeg" alt="Memory 18" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo22.jpeg" alt="Memory 19" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo23.jpeg" alt="Memory 20" onclick="openPhoto(this)">
+        </div>
+
+        <div class="photo-card">
+            <img src="photo24.jpeg" alt="Memory 21" onclick="openPhoto(this)">
+        </div>
+
+    </section>
+
+    <!-- PREVIOUS BUTTON -->
+
+    <div class="bottom-buttons">
+        <a href="convo.html" class="button">← Previous</a>
+
+    <a href="gift.html" class="button">Next →</a>
+
+    </div>
+
+</main>
+
+<footer>
+    ♡
+</footer>
+
+<!-- FULL-SIZE PHOTO VIEWER -->
+
+<div class="lightbox" id="lightbox" onclick="closePhoto()">
+
+    <button class="close-lightbox"
+            aria-label="Close photo"
+            onclick="closePhoto()">×</button>
+
+    <img id="lightbox-image" src="" alt="Expanded memory photo">
+
+</div>
+
+<script>
+/* TWINKLING STARS */
+
+const starsContainer = document.getElementById("stars");
+
+for (let i = 0; i < 90; i++) {
+    const star = document.createElement("span");
+
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 3 + "s";
+    star.style.animationDuration = (1.5 + Math.random() * 3) + "s";
+
+    starsContainer.appendChild(star);
+}
+
+/* FLOATING HEARTS */
+
+const symbols = ["♡", "♥", "♡", "✧"];
+
+for (let i = 0; i < 12; i++) {
+    const heart = document.createElement("span");
+
+    heart.className = "heart";
+    heart.textContent = symbols[
+        Math.floor(Math.random() * symbols.length)
+    ];
+
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.fontSize = (14 + Math.random() * 12) + "px";
+    heart.style.animationDelay = Math.random() * 12 + "s";
+    heart.style.animationDuration = (9 + Math.random() * 8) + "s";
+
+    document.body.appendChild(heart);
+}
+
+/* OPEN PHOTO */
+
+function openPhoto(image) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+    lightbox.classList.add("show");
+}
+
+/* CLOSE PHOTO */
+
+function closePhoto() {
+    document.getElementById("lightbox").classList.remove("show");
+}
+
+/* PREVENT CLOSING WHEN CLICKING THE LARGE PHOTO */
+
+document.getElementById("lightbox-image").addEventListener("click", function(event) {
+    event.stopPropagation();
+});
+
+/* CLOSE WITH ESCAPE KEY */
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closePhoto();
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Convo ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #f5a1d0;
+    --text: #f3e2f1;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--text);
+    font-family: 'Cormorant Garamond', serif;
+    background:
+        radial-gradient(ellipse at 50% 40%, rgba(107,44,101,.28), transparent 65%),
+        linear-gradient(145deg, #0c0818, #1c0d2b 55%, #100819);
+    overflow-x: hidden;
+}
+
+/* TWINKLING STARS */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #ffe8fa;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ffb5e4;
+    animation: twinkle 2.5s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: .2;
+        transform: scale(.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -35px;
+    color: #f38ac9;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    animation: floatHeart 12s linear infinite;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: .6;
+    }
+    80% {
+        opacity: .5;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+/* NAVIGATION */
+
+nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 17px 12px;
+    border-bottom: 1px solid rgba(255,182,225,.15);
+}
+
+nav a {
+    text-decoration: none;
+    color: #e9cce3;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff9ed6;
+}
+
+.nav-heart {
+    color: #ff9ed6;
+    font-size: 21px;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    width: min(1000px, 92%);
+    margin: auto;
+    padding: 35px 0 55px;
+    position: relative;
+    z-index: 1;
+}
+
+/* PAGE HEADING */
+
+.page-title {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    color: var(--pink);
+    font-size: clamp(43px, 7vw, 62px);
+    font-weight: normal;
+    text-shadow: 0 0 20px rgba(255,135,210,.35);
+    margin-bottom: 8px;
+}
+
+.title-heart {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    margin: 0 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #e4c9e1;
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 auto 38px;
+}
+
+/* SCREENSHOT AND MESSAGE ROWS */
+
+.memory-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(24px, 5vw, 55px);
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.memory-row.reverse .memory-photo {
+    order: 2;
+}
+
+.memory-row.reverse .memory-text {
+    order: 1;
+}
+
+/* SCREENSHOT CARD */
+
+.memory-photo {
+    min-width: 0;
+    padding: 13px;
+    border: 1px solid rgba(238,155,210,.3);
+    border-radius: 15px;
+    background: rgba(37,20,53,.8);
+    box-shadow: 0 8px 28px rgba(0,0,0,.25);
+    transition: .3s;
+}
+
+.memory-photo:hover {
+    transform: translateY(-4px);
+    border-color: #f5a1d0;
+    box-shadow: 0 8px 30px rgba(225,105,190,.15);
+}
+
+.chat-label {
+    color: #f7a8d8;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.chat-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+    object-position: top center;
+    border-radius: 7px;
+    background: #160d22;
+}
+
+.chat-caption {
+    color: #eec4e1;
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 23px;
+    margin-top: 10px;
+}
+
+/* MESSAGE BESIDE SCREENSHOT */
+
+.memory-text {
+    padding: 10px 0;
+}
+
+.memory-text .small-heart {
+    font-size: 23px;
+    color: #f59dd2;
+    margin-bottom: 9px;
+}
+
+.memory-text h2 {
+    color: #f5acd9;
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(29px, 4vw, 39px);
+    font-weight: normal;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.memory-text p {
+    font-size: 19px;
+    line-height: 1.75;
+    color: #efdeed;
+    margin-bottom: 12px;
+}
+
+.memory-text .handwritten {
+    font-family: 'Great Vibes', cursive;
+    font-size: 27px;
+    color: #f7a6d7;
+    margin-top: 15px;
+}
+
+/* BOTTOM LOVE NOTE */
+
+.love-note {
+    text-align: center;
+    margin: 40px auto 25px;
+    max-width: 650px;
+    padding: 25px 12px;
+    border-top: 1px solid rgba(245,161,208,.25);
+    border-bottom: 1px solid rgba(245,161,208,.25);
+}
+
+.love-note h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 35px;
+    font-weight: normal;
+    color: #f8addb;
+    margin-bottom: 12px;
+}
+
+.love-note p {
+    color: #ead4e8;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* PREVIOUS AND GALLERY BUTTONS */
+
+.bottom-buttons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff0fa;
+    background: linear-gradient(135deg, #84418e, #c65e9e);
+    border: 1px solid #e9a0cf;
+    border-radius: 30px;
+    padding: 12px 23px;
+    margin: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(245,137,207,.35);
+    background: linear-gradient(135deg, #a04da5, #e477b9);
+}
+
+/* FOOTER */
+
+footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #dcb3d5;
+    font-family: 'Great Vibes', cursive;
+    font-size: 26px;
+    padding: 5px 20px 30px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 650px) {
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 9px;
+    }
+
+    .container {
+        width: 90%;
+        padding-top: 28px;
+    }
+
+    .memory-row,
+    .memory-row.reverse {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-bottom: 42px;
+    }
+
+    .memory-row.reverse .memory-photo,
+    .memory-row.reverse .memory-text {
+        order: initial;
+    }
+
+    .memory-photo {
+        width: 100%;
+    }
+
+    .chat-image {
+        max-height: 500px;
+    }
+
+    .memory-text {
+        text-align: center;
+        padding: 0 5px;
+    }
+
+    .memory-text h2 {
+        font-size: 35px;
+    }
+
+    .memory-text p {
+        font-size: 18px;
+    }
+
+    .bottom-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+
+<!-- PAGE CONTENT -->
+
+<main class="container">
+
+    <h1 class="page-title">
+        <span class="title-heart">♡</span>
+        Our Convo
+        <span class="title-heart">♡</span>
+    </h1>
+
+    <p class="subtitle">
+        From silly little chats to conversations that mean everything...<br>
+        every screenshot holds a little piece of us. 💌
+    </p>
+
+    <!-- MEMORY 1 -->
+
+    <section class="memory-row">
+
+        <div class="memory-photo">
+           
+            <img
+                src="photo1.jpeg"
+                alt="Our first chat screenshot"
+                class="chat-image"
+            >
+
+            
+        </div>
+
+        <div class="memory-text">
+            <div class="small-heart">♡</div>
+
+            
+
+            <p>
+                I guess tumhe yaad hoga jab tum paheli baar insta pe aaye the 
+                toh maine samne se msg karke welcome aise kiya tha tumhara 🤭. Ye purani cheeze dekh ke andar se khushi hoti h bahut ki kaise hamara dheere dheere sab start hua.
+            </p>
+
+            
+
+        </div>
+
+    </section>
+
+    <!-- MEMORY 2 -->
+
+    <section class="memory-row reverse">
+
+        <div class="memory-photo">
+          
+            <img
+                src="photo2.jpeg"
+                alt="Our second chat screenshot"
+                class="chat-image"
+            >
+
+            
+        </div>
+
+        <div class="memory-text">
+            <div class="small-heart">♡</div>
+
+          
+
+            <p>
+                Ye wo wala time tha jab maine tumhe haan kiya tha. dekh rhe ho "Sweta ko mana kaise kar sakte h 😂". ye saari cheeze dekh ke khushi toh hoti hi h lekin hasi bhi aati h ki kaise ham pahele baat kiya karte the.
+            </p>
+
+
+        </div>
+
+    </section>
+
+    <!-- MEMORY 3 -->
+
+    <section class="memory-row">
+
+        <div class="memory-photo">
+           
+
+            <img
+                src="photo3.jpeg"
+                alt="Our third chat screenshot"
+                class="chat-image"
+            >
+
+            
+        </div>
+
+        <div class="memory-text">
+            <div class="small-heart">♡</div>
+
+            
+
+            <p>
+                Tumhara "cool boy se baby bann jata hu 😂". Dekh rhe ho ekdam sigma se pookie bana diya h maine tumhe. Hamari aisi bahut si chats h cute cute si bust mai saari nhi laga sakti. I hope ye messages padh ke tumhari bhi purani yaadein taaza ho gayai hogi.
+            </p>
+
+           
+        </div>
+
+    </section>
+
+    <!-- BOTTOM LOVE NOTE -->
+
+    <section class="love-note">
+        <h2>One Day, We'll Look Back...</h2>
+
+        <p>
+            We'll smile at all these messages, silly jokes and little moments.
+            Until then, here's to every conversation still waiting for us.
+            I love you Chikuu ♡
+        </p>
+    </section>
+
+    <!-- UPDATED BUTTONS -->
+
+    <div class="bottom-buttons">
+        <a href="wish.html" class="button">← Previous</a>
+        <a href="gallery.html" class="button">Next →</a>
+    </div>
+
+</main>
+
+
+<script>
+/* TWINKLING STARS */
+
+const starsContainer = document.getElementById("stars");
+
+for (let i = 0; i < 90; i++) {
+    const star = document.createElement("span");
+
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 3 + "s";
+    star.style.animationDuration = (1.5 + Math.random() * 3) + "s";
+
+    starsContainer.appendChild(star);
+}
+
+/* FLOATING HEARTS */
+
+const symbols = ["♡", "♥", "♡", "✧"];
+
+for (let i = 0; i < 12; i++) {
+    const heart = document.createElement("span");
+
+    heart.className = "heart";
+    heart.textContent = symbols[
+        Math.floor(Math.random() * symbols.length)
+    ];
+
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.fontSize = (14 + Math.random() * 12) + "px";
+    heart.style.animationDelay = Math.random() * 12 + "s";
+    heart.style.animationDuration = (9 + Math.random() * 8) + "s";
+
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Chikuu Babuu ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Cormorant Garamond', serif;
+    color: #ffeaf5;
+    background: #100819;
+    overflow-x: hidden;
+}
+
+/* DREAMY PURPLE BACKGROUND */
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    background:
+        linear-gradient(to bottom,
+            rgba(12,5,23,.45),
+            rgba(30,9,35,.18) 55%,
+            rgba(9,4,18,.85)),
+        radial-gradient(ellipse at 50% 72%,
+            #8d4169 0%, #48213f 35%,
+            #1c102b 70%, #0c0718 100%);
+}
+
+.glow {
+    position: fixed;
+    bottom: 0;
+    left: -10%;
+    width: 120%;
+    height: 45%;
+    z-index: -2;
+    background: radial-gradient(
+        ellipse, rgba(226,104,159,.22), transparent 70%
+    );
+    filter: blur(25px);
+}
+
+#stars {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    color: #ffd8ed;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%,100% { opacity: .25; transform: scale(.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* MOUNTAINS */
+.mountain {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 23vh;
+    z-index: -1;
+    background: #14091f;
+    clip-path: polygon(
+        0 70%,10% 43%,19% 70%,29% 35%,
+        40% 75%,51% 42%,63% 73%,74% 30%,
+        86% 69%,95% 43%,100% 60%,100% 100%,0 100%
+    );
+}
+
+.mountain.back {
+    bottom: 7%;
+    height: 18vh;
+    opacity: .55;
+    background: #38203f;
+}
+
+/* NAVIGATION */
+nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 6%;
+    background: rgba(13,6,23,.5);
+    border-bottom: 1px solid rgba(255,178,218,.15);
+}
+
+.logo {
+    font-size: 27px;
+    color: #f8a5d0;
+    text-shadow: 0 0 15px #ef78b5;
+}
+
+nav span {
+    color: #f3c6dd;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* HOME PAGE */
+.page {
+    min-height: calc(100vh - 57px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 45px 18px 85px;
+}
+
+.content {
+    width: 100%;
+    max-width: 760px;
+    text-align: center;
+}
+
+.small-heading {
+    color: #e8b5d2;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    color: #f5a5cf;
+    font-weight: 400;
+    font-size: clamp(55px, 10vw, 100px);
+    line-height: 1.15;
+    text-shadow: 0 0 22px rgba(241,129,185,.25);
+}
+
+.heart {
+    display: inline-block;
+    font-size: 38px;
+    color: #f6add2;
+    margin: 17px 0;
+    animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.description {
+    color: #f4ddeb;
+    font-size: clamp(18px, 3vw, 22px);
+    line-height: 1.7;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin: 25px 6px 0;
+    padding: 12px 27px;
+    border: 1px solid #f3a5ce;
+    border-radius: 40px;
+    color: #451b39;
+    background: linear-gradient(135deg,#ffd4e9,#ed91c0);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    text-decoration: none;
+    box-shadow: 0 0 22px rgba(238,126,183,.3);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 35px rgba(245,145,198,.65);
+}
+
+/* FLOATING HEARTS */
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    z-index: 5;
+    pointer-events: none;
+    color: #f5a5cf;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-115vh) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 18px;
+    color: #c895b5;
+    font-size: 14px;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:600px) {
+    nav {
+        padding: 13px 16px;
+    }
+
+    nav span {
+        font-size: 10px;
+    }
+
+    .page {
+        padding: 30px 14px 65px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="glow"></div>
+<div id="stars"></div>
+<div class="mountain back"></div>
+<div class="mountain"></div>
+
+<nav>
+    <div class="logo">♥</div>
+    
+</nav>
+
+<!-- HOME PAGE -->
+<section class="page" id="home">
+    <div class="content">
+
+        <div class="small-heading">
+            A little birthday surprise for my favourite person
+        </div>
+
+        <h1>
+            Happy Birthday,<br>
+            Chikuu Babuu
+        </h1>
+
+        <div class="heart">♡</div>
+
+        <p class="description">
+            Another year, another reason<br>
+            to be thankful for you.<br>
+            You make my world brighter,<br>
+            just by being in it. ♡
+        </p>
+
+        <!-- CLICKING THIS OPENS wish.html -->
+        <a class="btn" href="wish.html">
+            Next →&nbsp; 
+        </a>
+
+    </div>
+</section>
+
+
+
+<script>
+// TWINKLING STARS
+const stars = document.getElementById("stars");
+
+for (let i = 0; i < 85; i++) {
+    const star = document.createElement("span");
+
+    star.className = "star";
+    star.textContent = Math.random() > 0.5 ? "✦" : "·";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.fontSize = (8 + Math.random() * 10) + "px";
+    star.style.animationDelay = Math.random() * 4 + "s";
+    star.style.animationDuration = (2 + Math.random() * 3) + "s";
+
+    stars.appendChild(star);
+}
+
+// FLOATING HEARTS
+function createHeart() {
+    const heart = document.createElement("span");
+
+    heart.className = "floating-heart";
+    heart.textContent = Math.random() > 0.5 ? "♡" : "♥";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (12 + Math.random() * 18) + "px";
+    heart.style.animationDuration = (7 + Math.random() * 6) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 14000);
+}
+
+setInterval(createHeart, 900);
+</script>
+
+</body>
+</html>
+

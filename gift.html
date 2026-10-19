@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Your Gift ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #f5a1d0;
+    --text: #f3e2f1;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--text);
+    font-family: 'Cormorant Garamond', serif;
+    background:
+        radial-gradient(ellipse at 50% 48%, rgba(116, 48, 112, .4), transparent 60%),
+        linear-gradient(145deg, #0c0818, #1c0d2b 55%, #100819);
+    overflow-x: hidden;
+}
+
+/* TWINKLING STARS */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #ffe8fa;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ffb5e4;
+    animation: twinkle 2.5s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: .2;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -35px;
+    color: #f38ac9;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    animation: floatHeart 12s linear infinite;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .6;
+    }
+
+    80% {
+        opacity: .5;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+/* NAVIGATION */
+
+nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 17px 12px;
+    border-bottom: 1px solid rgba(255, 182, 225, .15);
+}
+
+nav a {
+    text-decoration: none;
+    color: #e9cce3;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff9ed6;
+}
+
+.nav-heart {
+    color: #ff9ed6;
+    font-size: 21px;
+}
+
+/* MAIN CONTENT */
+
+.container {
+    width: min(1000px, 94%);
+    min-height: 78vh;
+    margin: auto;
+    padding: 35px 0 40px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HEADING */
+
+.heading {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(48px, 7vw, 68px);
+    font-weight: 400;
+    color: #f6a7d4;
+    text-shadow: 0 0 18px rgba(245, 137, 207, .35);
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #e7c6e0;
+    font-size: 19px;
+    letter-spacing: .4px;
+    margin-bottom: 20px;
+}
+
+/* GIFT AREA */
+
+.gift-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    padding: 15px 0 25px;
+}
+
+/* CLICKABLE GIFT */
+
+.gift-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    outline-offset: 12px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.gift-scene {
+    position: relative;
+    width: min(310px, 75vw);
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, .25));
+    animation: giftFloat 3s ease-in-out infinite;
+}
+
+@keyframes giftFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+/* GIFT BOX BODY */
+
+.gift-box {
+    position: absolute;
+    bottom: 28px;
+    width: 235px;
+    height: 175px;
+    max-width: 85%;
+    background: linear-gradient(
+        120deg,
+        #a84383 0%,
+        #d86eac 45%,
+        #b54b91 100%
+    );
+    border: 1px solid rgba(255, 194, 230, .8);
+    border-radius: 5px 5px 10px 10px;
+    box-shadow:
+        inset 8px 0 15px rgba(255, 210, 239, .13),
+        inset -8px 0 15px rgba(63, 13, 57, .12),
+        0 14px 30px rgba(0, 0, 0, .25);
+}
+
+/* VERTICAL RIBBON */
+
+.gift-ribbon-vertical {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 42px;
+    background: linear-gradient(
+        90deg,
+        #f5d8a8,
+        #fff0cd 45%,
+        #e5bd82
+    );
+    box-shadow: 0 0 12px rgba(255, 223, 177, .2);
+}
+
+/* HORIZONTAL RIBBON */
+
+.gift-ribbon-horizontal {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    height: 37px;
+    background: linear-gradient(
+        180deg,
+        #fff0cd,
+        #e5bd82
+    );
+    border-top: 1px solid rgba(255,255,255,.5);
+    border-bottom: 1px solid rgba(110,65,48,.15);
+}
+
+/* GIFT LID */
+
+.gift-lid {
+    position: absolute;
+    bottom: 193px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    max-width: 95%;
+    height: 46px;
+    background: linear-gradient(
+        135deg,
+        #e58bc1,
+        #f1a5d0 48%,
+        #ca64a5
+    );
+    border: 1px solid rgba(255, 212, 238, .9);
+    border-radius: 7px;
+    box-shadow:
+        inset 0 4px 8px rgba(255,255,255,.15),
+        0 5px 12px rgba(0,0,0,.2);
+    z-index: 3;
+    transition: transform .5s ease;
+}
+
+/* LID RIBBON */
+
+.lid-ribbon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 42px;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #f5d8a8,
+        #fff0cd 45%,
+        #e5bd82
+    );
+}
+
+/* BOW */
+
+.bow {
+    position: absolute;
+    left: 50%;
+    bottom: 226px;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 60px;
+    z-index: 4;
+    transition: transform .5s ease;
+}
+
+.bow-left,
+.bow-right {
+    position: absolute;
+    top: 4px;
+    width: 44px;
+    height: 34px;
+    background: linear-gradient(135deg, #ffe9bf, #e7bd83);
+    border: 2px solid #d5a66f;
+}
+
+.bow-left {
+    left: 6px;
+    border-radius: 70% 20% 65% 30%;
+    transform: rotate(28deg);
+}
+
+.bow-right {
+    right: 6px;
+    border-radius: 20% 70% 30% 65%;
+    transform: rotate(-28deg);
+}
+
+.bow-center {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, #fff0cf, #d6a66c);
+    border-radius: 50%;
+    border: 2px solid #d5a66f;
+}
+
+/* SMALL HEART ON THE BOX */
+
+.box-heart {
+    position: absolute;
+    z-index: 2;
+    top: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff0fa;
+    font-size: 29px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, .45);
+}
+
+/* HOVER EFFECT */
+
+.gift-link:hover .gift-scene {
+    animation-play-state: paused;
+    transform: translateY(-5px) scale(1.035);
+}
+
+.gift-link:hover .gift-lid {
+    transform: translateX(-50%) translateY(-13px) rotate(-4deg);
+}
+
+.gift-link:hover .bow {
+    transform: translateX(-50%) translateY(-15px) rotate(-5deg);
+}
+
+.gift-link:hover .box-heart {
+    text-shadow: 0 0 16px #fff, 0 0 28px #ff8fd0;
+}
+
+/* CLICK INSTRUCTION */
+
+.click-text {
+    margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: #f5b5dc;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: .65;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* DECORATIVE SPARKLES */
+
+.sparkle {
+    position: absolute;
+    color: #ffd8f0;
+    font-size: 25px;
+    text-shadow: 0 0 15px #ff9ed6;
+    animation: sparkle 2.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.sparkle.one {
+    top: 36px;
+    left: 13%;
+}
+
+.sparkle.two {
+    top: 95px;
+    right: 12%;
+    animation-delay: .7s;
+}
+
+.sparkle.three {
+    bottom: 40px;
+    left: 20%;
+    animation-delay: 1.2s;
+}
+
+.sparkle.four {
+    bottom: 65px;
+    right: 18%;
+    animation-delay: .4s;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: .35;
+        transform: scale(.8) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.25) rotate(15deg);
+    }
+}
+
+/* BOTTOM BUTTON */
+
+.bottom-buttons {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff0fa;
+    background: linear-gradient(135deg, #84418e, #c65e9e);
+    border: 1px solid #e9a0cf;
+    border-radius: 30px;
+    padding: 11px 24px;
+    margin: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    transition: .3s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(245, 137, 207, .35);
+}
+
+/* FOOTER */
+
+footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #dcb3d5;
+    font-family: 'Great Vibes', cursive;
+    font-size: 27px;
+    padding: 0 20px 20px;
+}
+
+/* TABLET */
+
+@media (max-width: 700px) {
+    nav {
+        gap: 9px;
+    }
+
+    nav a {
+        font-size: 9px;
+    }
+
+    .container {
+        padding-top: 28px;
+    }
+
+    .gift-scene {
+        transform: scale(.9);
+    }
+
+    .sparkle.one {
+        left: 5%;
+    }
+
+    .sparkle.two {
+        right: 5%;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+    nav {
+        gap: 8px;
+        padding: 12px 8px;
+    }
+
+    nav a {
+        font-size: 8px;
+    }
+
+    .nav-heart {
+        font-size: 17px;
+    }
+
+    .container {
+        width: 92%;
+        min-height: 78vh;
+        padding-top: 30px;
+    }
+
+    .heading {
+        margin-bottom: 8px;
+    }
+
+    .subtitle {
+        font-size: 17px;
+        margin-bottom: 12px;
+    }
+
+    .gift-area {
+        padding-top: 0;
+    }
+
+    .gift-scene {
+        transform: scale(.82);
+        transform-origin: center center;
+        margin: -10px 0;
+    }
+
+    .gift-link:hover .gift-scene {
+        transform: scale(.85) translateY(-5px);
+    }
+
+    .sparkle {
+        font-size: 20px;
+    }
+
+    .sparkle.one {
+        top: 30px;
+        left: 2%;
+    }
+
+    .sparkle.two {
+        top: 80px;
+        right: 2%;
+    }
+
+    .sparkle.three {
+        bottom: 35px;
+        left: 8%;
+    }
+
+    .sparkle.four {
+        bottom: 50px;
+        right: 8%;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+
+
+<!-- MAIN CONTENT -->
+
+<main class="container">
+
+    <h1 class="heading">Your Gift ♡</h1>
+
+    <p class="subtitle">
+        A little something, made with lots of love...
+    </p>
+
+    <section class="gift-area">
+
+        <!-- DECORATIVE SPARKLES -->
+
+        <span class="sparkle one">✧</span>
+        <span class="sparkle two">✦</span>
+        <span class="sparkle three">✧</span>
+        <span class="sparkle four">✦</span>
+
+        <!-- CLICKING THE GIFT OPENS LETTER.HTML -->
+
+        <a href="letter.html"
+           class="gift-link"
+           aria-label="Open your gift and read your letter">
+
+            <div class="gift-scene">
+
+                <!-- GIFT BOX BODY -->
+
+                <div class="gift-box">
+
+                    <div class="gift-ribbon-vertical"></div>
+                    <div class="gift-ribbon-horizontal"></div>
+
+                    <div class="box-heart">♡</div>
+
+                </div>
+
+                <!-- GIFT LID -->
+
+                <div class="gift-lid">
+                    <div class="lid-ribbon"></div>
+                </div>
+
+                <!-- GIFT BOW -->
+
+                <div class="bow">
+                    <div class="bow-left"></div>
+                    <div class="bow-right"></div>
+                    <div class="bow-center"></div>
+                </div>
+
+            </div>
+
+            <span class="click-text">
+                Click to open your gift ♡
+            </span>
+
+        </a>
+
+    </section>
+
+    <!-- PREVIOUS BUTTON -->
+
+    <div class="bottom-buttons">
+        <a href="gallery.html" class="button">
+            ← Previous: Gallery
+        </a>
+    </div>
+
+</main>
+
+<footer>♡</footer>
+
+<script>
+/* TWINKLING STARS */
+
+const starsContainer = document.getElementById("stars");
+
+for (let i = 0; i < 90; i++) {
+    const star = document.createElement("span");
+
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 3 + "s";
+    star.style.animationDuration =
+        (1.5 + Math.random() * 3) + "s";
+
+    starsContainer.appendChild(star);
+}
+
+/* FLOATING HEARTS */
+
+const symbols = ["♡", "♥", "♡", "✧"];
+
+for (let i = 0; i < 12; i++) {
+    const heart = document.createElement("span");
+
+    heart.className = "heart";
+    heart.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.fontSize =
+        (14 + Math.random() * 12) + "px";
+    heart.style.animationDelay =
+        Math.random() * 12 + "s";
+    heart.style.animationDuration =
+        (9 + Math.random() * 8) + "s";
+
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
